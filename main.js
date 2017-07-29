@@ -64,6 +64,8 @@ function question5 () {
   for (let i = 0; i < data.length; i++) {
     if(data[i].materials.length > 8 ){
       multi.push(data[i].title);
+      multi.push(data[i].title.length);
+      multi.push(data[i].materials);
 
     }
   }
