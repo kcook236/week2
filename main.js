@@ -23,7 +23,7 @@ function question2 () {
   let between = [];
   for (let i = 0; i < data.length; i++) {
     if (data[i].price >= 14.00 && data[i].price <= 18.00) {
-      between.push(data[i].price);
+      between.push(data[i].title);
     }
   }
   console.log(between);
@@ -45,28 +45,32 @@ function question3 () {
 
 
 // 4: Display a list of all items who are made of wood.
+
+
 function question4 () {
   let tree = [];
   for (let i = 0; i < data.length; i++) {
-    if (data[i].materials == "wood"){
-      tree.push(data[i].title);
+    let materials = data[i].materials
+    for (let j = 0; j < materials.length; j++) {
+      if (materials[j] === "wood") {
+        tree.push(data[i].title);
+      }
     }
-
   }
   console.log(tree);
-}
+}w
 
 
 // 5: Which items are made of eight or more materials?
 //    Display the name, number of items and the items it is made of.
 function question5 () {
   let multi = [];
+  // let list = [];
   for (let i = 0; i < data.length; i++) {
-    if(data[i].materials.length > 8 ){
-      multi.push(data[i].title);
-      multi.push(data[i].title.length);
-      multi.push(data[i].materials);
+    if(data[i].materials.length >= 8 ){
 
+      
+      multi.push(data[i].title + " (" + data[i].materials.length + ") " + data[i].materials.join(", ")  )
     }
   }
   console.log(multi);
@@ -78,7 +82,7 @@ function question5 () {
 function question6 () {
   let homemade = [];
   for (let i = 0; i < data.length; i++) {
-    if (data[i].who_made = "i_did") {
+    if (data[i].who_made == "i_did") {
       homemade.push(data[i].who_made);
     }
   }
